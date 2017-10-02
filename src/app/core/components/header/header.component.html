@@ -1,0 +1,39 @@
+<md-toolbar color="primary" class="mat-elevation-z1">
+  <button md-icon-button fxShow.gt-xs="false" (click)="onSideBarToggled()"><md-icon>menu</md-icon></button>
+  <img [ngStyle.xs]="{'max-height.px' : 30}" [ngStyle.gt-xs]="{'max-height.px' : 35}" src="/assets/isotipo.svg" alt="medify"
+    class="logo">
+  <span fxShow.xs="false">Medify</span>
+  <span class="fill-remaining-space"></span>
+  <button md-icon-button fxShow.xs="false"><md-icon>shopping_cart</md-icon></button>
+  <button md-icon-button fxShow.xs="false"><md-icon>favorite</md-icon></button>
+  <div *ngIf="!isLoggedIn">
+      <button md-icon-button [mdMenuTriggerFor]="menu1">
+          <md-icon>more_vert</md-icon>
+        </button>
+      <md-menu #menu1="mdMenu">
+        <button md-menu-item routerLink="/login">
+            <md-icon>lock_open</md-icon>
+            <span>Iniciar sesi&oacute;n</span>
+          </button>
+        <button [hidden]="isLoggedIn" md-menu-item routerLink="/register">
+              <md-icon>assignment_ind</md-icon>
+              <span>Registro</span>
+            </button>
+      </md-menu>
+  </div>
+  <div *ngIf="isLoggedIn">
+      <button md-icon-button [mdMenuTriggerFor]="menu2">
+          <md-icon>more_vert</md-icon>
+        </button>
+      <md-menu #menu2="mdMenu">
+        <button [hidden]="!isLoggedIn" md-menu-item routerLink="account">
+                <md-icon>account_box</md-icon>
+                <span>Perfil</span>
+          </button>
+        <button [hidden]="!isLoggedIn" md-menu-item (click)="onSignOut()">
+            <md-icon>lock_outline</md-icon>
+            <span>Cerrar sesi&oacute;n</span>
+          </button>
+      </md-menu>
+  </div>
+</md-toolbar>

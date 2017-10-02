@@ -1,1 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+html, body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #E9E9ED;
+    padding: 0;
+    margin: 0;
+}
+
+html, body, * {
+    box-sizing: border-box;
+}
+
+.google-btn{
+    background-color: #d34836 !important;
+    color: #ffffff !important;
+}
+.facebook-btn{
+    background-color: 	#3b5998 !important;
+    color: #ffffff !important;
+}

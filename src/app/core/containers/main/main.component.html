@@ -1,0 +1,21 @@
+<md-sidenav-container fullscreen>
+  <md-sidenav #sidenav>
+    <md-toolbar color="primary"> 
+      <span>Medify</span>
+      <span class="spacer"></span> 
+      <button md-icon-button (click)="sidenav.close()"><md-icon>close</md-icon></button>
+    </md-toolbar>
+    <md-nav-list>
+      <a md-list-item routerLink="cart">
+        <md-icon>shopping_cart</md-icon> Carrito de compras </a>
+      <a md-list-item [routerLink]="['account', 'favorites']">
+        <md-icon>favorite</md-icon> Favoritos </a>
+    </md-nav-list>
+  </md-sidenav>
+  <app-header 
+    [isLoggedIn]="isLoggedIn"
+    (sideBarToggled)="sidenav.open()"
+    (signOut)="onSignOut()">
+  </app-header>
+  <router-outlet></router-outlet>
+</md-sidenav-container>

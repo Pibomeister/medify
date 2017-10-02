@@ -1,0 +1,26 @@
+<div class="container">
+    <md-card class="login-card">
+        <md-card-subtitle>Inicia sesi&oacute;n con tu cuenta en Medify&copy; o con redes sociales</md-card-subtitle>
+        <form class="form" #f="ngForm" (ngSubmit)="onSubmit(f)">            
+        <md-card-content>
+            <md-form-field class="full-width">
+              <input mdInput placeholder="Correo" type="email" required #email name="email" ngModel>
+            </md-form-field>
+            <md-form-field class="full-width">
+              <input mdInput placeholder="Contraseña" type="password" required #password name="password"  ngModel>
+            </md-form-field>
+            <button md-raised-button type="submit" color="primary" class="full-width">Iniciar sesi&oacute;n</button>
+        </md-card-content>
+      </form>
+      </md-card>
+      <div class="social-buttons" fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center stretch" fxLayoutGap="10px">
+        <button md-raised-button class="facebook-btn">Facebook</button>
+        <button md-raised-button class="google-btn">Google</button>
+      </div>
+      <div class="mat-body-1 extras">
+        <p>
+            ¿Aún no tienes una cuenta? Haz click <a routerLink="/register">aquí</a>
+        </p>
+        <button md-icon-button routerLink="/"><md-icon>home</md-icon></button>
+      </div>
+</div>
