@@ -1,3 +1,9 @@
+import { DrugService } from '../../../core/services/drug.service';
+import 'rxjs/add/operator/switchMap';
+import { IDrug } from '../../../../shared/models/drug';
+import { Observable } from 'rxjs/Rx';
+import { Subscription } from 'rxjs/Subscription';
+import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +13,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SubCatalogueComponent implements OnInit {
 
-  constructor() { }
+  private routeSub: Subscription;
+  public category: string;
+  public drugs$: Observable<IDrug[]>;
+
+  constructor(private activatedRoute: ActivatedRoute,
+              private drugService: DrugService) { }
 
   ngOnInit() {
+    this.drugs$ = this.activatedRoute.params
+      .switchMap(params => {
+        this.category = params['category']; 
+        return this.drugService.getDrugsByCategory(this.category)
+      });
+
   }
+
+
 
 }

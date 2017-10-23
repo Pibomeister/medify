@@ -1,3 +1,4 @@
+import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from './services/auth.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -21,10 +22,12 @@ import {
    MatInputModule
    } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { DrugService } from './services/drug.service';
 
 @NgModule({
   imports: [
     CommonModule,
+    HttpModule,
     BrowserAnimationsModule,
     RouterModule,
     FormsModule,
@@ -65,7 +68,7 @@ export class CoreModule {
   static forRoot(): ModuleWithProviders {
     return {
       ngModule: CoreModule,
-      providers: [AuthService]
+      providers: [AuthService, DrugService]
     };
   }
 }
